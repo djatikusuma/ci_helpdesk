@@ -1,0 +1,129 @@
+@font-face {
+  font-family: "Bebas Neue";
+  src: local(Roboto Regular), url("../font/bebas_neue/BebasNeue-Regular.otf");
+}
+
+@font-face {
+    font-family: webMe;
+    src: url("<?=base_url("assets/frontend/");?>font/maiandra/maiandra.woff");
+}
+
+.view,
+body,
+html{
+	height:100% }
+.navbar{
+	background-color:rgba(0,0,0,.2) }
+.page-footer,
+.top-nav-collapse{
+	background-color:#1C2331 }
+
+.form-elegant .font-small {
+font-size: 0.8rem; }
+
+.form-elegant .z-depth-1a {
+-webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25); }
+
+.form-elegant .z-depth-1-half,
+.form-elegant .btn:hover {
+-webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }
+
+#main-div {
+	display: none;
+}
+
+@media only screen and (max-width:768px){
+	.navbar{background-color:#1C2331}}
+
+.judul-head{
+	font-weight: 800;
+	font-size: 4em;
+}
+
+.judul-head2{
+	font-weight: 800;
+	font-size: 3em;
+	margin-left: 115px;
+}
+
+.box-pencarian{
+	padding: 20px 0px 20px 0px;
+	background-color: #3498DB;
+}
+
+.subsection h2 {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: relative;
+}
+.subsection h2:after{
+	content:'';
+	border:1px solid #23c0e9;
+	width:30px;
+	position:absolute;
+	bottom: -15px;
+    left: 11px;
+}
+.subsection h2:before{
+	content:'';
+	border:1px solid #23c0e9;
+	width:8px;
+	position:absolute;
+	bottom: -15px;
+    left: 0;
+}
+
+@media only screen and (max-width:1200px)
+{
+	.inputpadd{ padding-top: 5px;}
+	.judul-head{
+		font-weight: 800;
+		font-size: 3em;
+	}
+	.judul-head2{
+		font-size: 2em;
+	}
+	.btnfull{ width: 100%;  margin-top: 5px;}
+}
+
+.btn-apply{
+	height: 60px;
+}
+
+.box-foot{
+  padding: 20px 0px 20px 0px;
+  background-color: #1C2331;
+  color: #fff;
+}
+
+.box-spons{
+  padding: 35px 0px 35px 0px;
+  background-color: #fff;
+}
+
+.judul-foot{
+  font-weight: 500;
+  font-size: 2em;
+}
+
+.card-kategori{
+	width: 300px;
+	height: 300px;
+}
+
+.text-card{
+	text-align: left;
+}
+
+.foot-content{
+	padding: 0px 50px 0px 50px;
+}
+
+.navbar .navbar-brand img {
+    height: 30px;
+}
+

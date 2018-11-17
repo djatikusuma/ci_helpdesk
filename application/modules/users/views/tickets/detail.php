@@ -5,6 +5,11 @@
       <div class="row">
         <div class="col-md-12">
         <h3 class="box-title">Lihat Tiket</h3>
+        <?php if($result->status_id != 3) : ?>
+        <a class="btn btn-md btn-danger pull-right" href="<?=base_url("users/tickets/close_ticket/{$this->uri->segment(4)}");?>"><i class="fa fa-close"></i> Close Ticket</a>
+        <?php else:?>
+            <div class="alert alert-warning"><b>Untuk membuka kembali ticket, anda bisa langsung mengisi reply untuk ticket</b></div>
+        <?php endif;?>
         <hr>
         <div class="row">
             <div class="col-md-offset-4 col-md-4">

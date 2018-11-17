@@ -140,6 +140,7 @@ class Tickets extends CI_Controller {
                     $data['attachment'] = json_encode($image);
                     
                     $this->post_model->create('solutions', $data);
+                    $this->post_model->update('tickets', ['status_id' => 2], ['ticket_code' => $id]);
                         
                     redirect("bigadmin/tickets/detail/{$input['ticket_code']}", 'refresh');
                 }
@@ -150,6 +151,26 @@ class Tickets extends CI_Controller {
                 $data['result']    = $this->tickets_model->getTicketData($id)->row();
                 // print_r($getData);
                 $this->template->load('template', 'tickets/detail', $data);
+            }
+        }
+    }
+    
+    public function close_ticket($id){
+        if($id != null){
+            
+            if (!$this->ion_auth->logged_in())
+            {
+                redirect('bigadmin/login', 'refresh');
+            }
+            else
+            {  
+                $user = $this->user_model->getUserDetailByUsername($sess['username']);
+                $this->post_model->update('tickets', ['status_id' => 3], ['ticket_code' => $id]);
+                //list the users
+                $data['users']     = $this->post_model->read("users", ["id" => $this->ion_auth->get_user_id()])->row();
+                $data['solutions'] = $this->tickets_model->getSolutionData($id)->result();
+                $data['result']    = $this->tickets_model->getTicketData($id)->row();
+                redirect(base_url("bigadmin/tickets/detail/$id"));
             }
         }
     }

@@ -7,7 +7,7 @@
             <div class="box box-info">
                 <div class="box-header">
                   <h3 class="box-title">Tiket</h3>
-                  <a class="btn btn-info btn-md pull-right" href="<?=base_url('users/tickets/new');?>"><i class="glyphicon glyphicon-pencil"></i> Tiket Baru</a>
+                  <a class="btn btn-info btn-md pull-right" href="<?=base_url('users/tickets/new_ticket');?>"><i class="glyphicon glyphicon-pencil"></i> Tiket Baru</a>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">

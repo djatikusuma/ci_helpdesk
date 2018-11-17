@@ -33,7 +33,7 @@ class Tickets extends CI_Controller {
         $this->template->load('public/template', 'tickets/index', $data);
     }
 
-    public function new()
+    public function new_ticket()
     {
 		$this->load->library('form_validation');
         $sess = $this->session->userdata('userData');
@@ -208,6 +208,7 @@ class Tickets extends CI_Controller {
                     $data['attachment'] = json_encode($image);
                     
                     $this->post_model->create('solutions', $data);
+                    $this->post_model->update('tickets', ['status_id' => 2], ['ticket_code' => $id]);
                         
                     redirect("users/tickets/detail/{$input['ticket_code']}", 'refresh');
                 }
@@ -219,6 +220,28 @@ class Tickets extends CI_Controller {
                 $data['result']    = $this->tickets_model->getTicketData($id)->row();
                 // print_r($getData);
                 $this->template->load('public/template', 'tickets/detail', $data);
+            }
+        }
+    }
+    
+    public function close_ticket($id){
+        if($id != null){
+            
+            $sess = $this->session->userdata('userData');
+            // Cek Status Login
+            if(!$sess['login_status']){ 
+                redirect(base_url('users/login'),'refresh');
+            }
+            else
+            {  
+                $user = $this->user_model->getUserDetailByUsername($sess['username']);
+                $this->post_model->update('tickets', ['status_id' => 3], ['ticket_code' => $id]);
+                //list the users
+                $data['users']     = $user;
+                $data['sess']      = $sess;
+                $data['solutions'] = $this->tickets_model->getSolutionData($id)->result();
+                $data['result']    = $this->tickets_model->getTicketData($id)->row();
+                redirect(base_url("users/tickets/detail/$id"));
             }
         }
     }

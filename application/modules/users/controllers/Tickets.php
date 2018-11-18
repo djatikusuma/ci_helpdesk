@@ -129,7 +129,7 @@ class Tickets extends CI_Controller {
             $row        = array();
             $department = $this->post_model->read('groups', ['id' => $res->department_id])->row();
             $solution   = $this->post_model->read('solutions', ['ticket_code' => $res->ticket_code])->result();
-            if(count($solution) > 0){
+            if(count($solution) > 0 && $res->status_id != 3){
                 $this->post_model->update("tickets", array("status_id" => 2), array("ticket_code" => $res->ticket_code));
             }
             $status     = $this->post_model->read('statuses', ['id' => $res->status_id])->row();
